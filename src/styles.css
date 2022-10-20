@@ -1,0 +1,197 @@
+/**
+* This is the result of the compiled CSS from the various components.
+* It's meant to serve as a single file that can be imported into any site
+* and as long as the markup is identical, the design should be applied correctly.
+*/
+*,
+:after,
+:before {
+  box-sizing: border-box;
+  margin: 0;
+}
+body,
+html {
+  font-family: Nanum Gothic, Montserrat, -apple-system, BlinkMacSystemFont,
+    Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
+  font-size: 16px;
+  word-spacing: 1px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+body {
+  border: 10px solid #ccc;
+  min-height: 100vh;
+  line-height: 1.4;
+}
+h1,
+h2,
+h3 {
+  font-family: Domine, "PT Serif", -apple-system, BlinkMacSystemFont, Segoe UI,
+    Roboto, Helvetica Neue, Arial, sans-serif;
+  font-weight: 400;
+}
+h1 {
+  font-size: 2.5rem;
+}
+p {
+  margin: 20px 0;
+}
+a,
+a:active,
+a:visited {
+  color: #d96528;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+button {
+  border: 1px solid #ccc;
+  background: #fff;
+  padding: 10px 14px;
+  cursor: pointer;
+  color: #000;
+  font-weight: 700;
+  font-family: Nanum Gothic, Montserrat, -apple-system, BlinkMacSystemFont,
+    Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
+  transition: all 0.3s ease;
+}
+button:hover {
+  background: #000;
+  border: 1px solid #000;
+  color: #fff;
+}
+hr {
+  border-top: 1px solid #eee;
+  margin: 30px 0;
+}
+input {
+  font-family: Nanum Gothic, Montserrat, -apple-system, BlinkMacSystemFont,
+    Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
+  font-size: 16px;
+  padding: 5px 10px;
+}
+
+.main-nav {
+  display: flex;
+  justify-content: space-around;
+}
+.main-nav {
+  width: 100%;
+  margin-top: 30px;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  padding: 8px 0;
+}
+
+.main-nav-item {
+  padding: 8px 0;
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 1px solid purple;
+}
+@media screen and (min-width: 414px) {
+  .main-nav-item {
+    padding: 0 8px;
+    font-size: 0.7rem;
+  }
+}
+@media screen and (min-width: 640px) {
+  .main-nav-item {
+    padding: 0 10px;
+    font-size: 0.8rem;
+  }
+}
+.main-nav-item a {
+  color: #000;
+}
+.main-nav-item a:hover {
+  color: #d96528;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .cart-size {
+    right: -18px;
+  }
+}
+.testimonial {
+  width: 100%;
+  height: 280px;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #fff;
+}
+.testimonial h2 {
+  padding: 0 30px;
+  text-align: center;
+}
+.project-credit {
+  width: 100%;
+  padding: 10px 30px;
+  background: grey;
+  color: #fff;
+  text-align: center;
+}
+.project-credit a,
+.project-credit a:active,
+.project-credit a:visited {
+  color: #2af;
+  font-weight: 700;
+}
+
+.home-page {
+  margin: 20px;
+ margin-right: 380px;
+}
+.product-grid {
+  max-width: 60vw;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 30px;
+  grid-row-gap: 30px;
+}
+@media screen and (min-width: 640px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (min-width: 1024px) {
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (min-width: 1280px) {
+  .product-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.product-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  flex-direction: column;
+  border: 1px solid gray;
+  box-shadow: 2px 2px 2px 2px #888888;
+}
+
+.product-card-text {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5rem 0;
+}
+.product-card-title {
+  margin: 0.5rem 0;
+  text-align: center;
+  font-weight: 700;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -1,0 +1,11 @@
+<nav class="main-nav">
+  <div class="main-nav-item">
+    <a routerLink="/">VF APPAREL co</a>
+  </div>
+    <div class="price">
+      <p>{{totalPrice | currency: 'GBP'}}</p>
+    </div>
+    <a routerLink="cart" class="circle">
+      <p style="color: white; margin-left: 11px; margin-top: 5px;">{{totalQuantity}}</p>
+    </a>
+</nav>
