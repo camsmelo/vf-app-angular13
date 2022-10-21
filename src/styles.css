@@ -22,7 +22,6 @@ html {
   box-sizing: border-box;
 }
 body {
-  border: 10px solid #ccc;
   min-height: 100vh;
   line-height: 1.4;
 }
