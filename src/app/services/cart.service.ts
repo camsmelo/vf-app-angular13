@@ -41,10 +41,4 @@ export class CartService {
     this.productBehavior.next(product);
   }
 
-
-  remove() {
-    this.cartItems = this.cartItems.filter((id) => {
-      id !== id;
-    });
-  }
 }

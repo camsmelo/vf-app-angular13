@@ -23,7 +23,6 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.updateCartStatus();
-    this.teste();
   }
 
   updateCartStatus() {
@@ -38,6 +37,11 @@ export class CartComponent implements OnInit {
         this.totalPrice = data;
       },
     });
+
+    this.cartService.productBehavior.subscribe((data: any) => {
+      this.productReceive = data;
+    });
+    this.add(this.productReceive)
   }
 
   remove(id: any) {
@@ -45,17 +49,8 @@ export class CartComponent implements OnInit {
       e.id === id;
     });
     if (index !== 1) {
-      this.productsList.splice(index, 1);
-      window.location.reload();
+      this.productsList.splice(index, 1);   
     }
-  }
-
-  teste() {
-   
-    this.cartService.productBehavior.subscribe((data: any) => {
-      this.productReceive = data;
-    });
-    this.add(this.productReceive)
   }
 
   add(item: Product){
