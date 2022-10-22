@@ -3,24 +3,23 @@
     <th class="cart-table-heading">Item</th>
     <th class="cart-table-heading">Quantity</th>
     <th class="cart-table-heading">Price</th>
-    <th class="cart-table-heading">Total</th>
+     <th class="cart-table-heading">Size</th>
     <th class="cart-table-heading"></th>
   </thead>
   <tbody>
-    <tr *ngFor="let item of productsList" class="cart-table-row">
-      <td class="cart-table-cell">
-          {{item.title}}
-      </td>
-     
-      <td class="cart-table-cell">
-        {{totalQuantity}}
-      </td>
-      <td class="cart-table-cell">
-        {{totalPrice | currency: 'GBP'}} </td>
-
-      <td class="cart-table-cell c">
-        <button (click)="remove(item.products)">Remove Item</button>
-      </td>
-    </tr>
+      <tr *ngFor="let item of productsList" class="cart-table-row">
+        <td class="cart-table-cell">
+            {{item.title }}
+        </td>
+        <td class="cart-table-cell">
+          {{totalQuantity}}
+        </td>
+        <td class="cart-table-cell">
+          {{totalPrice | currency: 'GBP'}} </td>
+        <td class="cart-table-cell c">
+          <button (click)="remove(item.products)">Remove Item</button>
+        </td>
+      </tr>   
   </tbody>
 </table>
+

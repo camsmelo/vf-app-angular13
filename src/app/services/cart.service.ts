@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, map, Observable, pluck, Subject } from 'rxjs';
+import {  Product } from '../model/product.model';
 
 @Injectable({
   providedIn: 'root',
@@ -8,20 +9,31 @@ import { BehaviorSubject } from 'rxjs';
 export class CartService {
   cartItems: any[] = [];
 
+  mycart = new Subject<any>()
+
   quantity!: number;
 
   totalPrice: BehaviorSubject<number> = new BehaviorSubject<number>(0);
   totalQuantity: BehaviorSubject<number> = new BehaviorSubject<number>(0);
 
-  productBehavior: BehaviorSubject<any> = new BehaviorSubject<any>('');
+  productBehavior$: BehaviorSubject<any> = new BehaviorSubject<any>([]);
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
   addToCard(cartItemParam: any) {
-    this.addProduct(cartItemParam);
-    this.cartItems.push(cartItemParam);
-    this.quantity = this.cartItems.length;
-    this.cartTotal();
+
+    this.productBehavior$.subscribe({
+      next:(data) => {
+        this.cartItems = data
+        this.cartItems.push(cartItemParam);
+        this.quantity = this.cartItems.length;
+        this.cartTotal();
+        console.log(data)
+      }
+    })
+      this.productBehavior$.next(cartItemParam)
+
   }
 
   cartTotal() {
@@ -35,10 +47,7 @@ export class CartService {
 
     this.totalPrice.next(totalPriceValue);
     this.totalQuantity.next(this.quantity);
-  }
-
-  addProduct(product: any) {
-    this.productBehavior.next(product);
+  
   }
 
 }

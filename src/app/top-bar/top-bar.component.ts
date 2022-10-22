@@ -32,5 +32,6 @@ export class TopBarComponent implements OnInit {
         this.totalPrice = data;
       },
     });
+
   }
 }

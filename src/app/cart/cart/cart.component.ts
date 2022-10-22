@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Product } from 'src/app/model/product.model';
 import { CartService } from 'src/app/services/cart.service';
 import { ProductsService } from 'src/app/services/products.service';
@@ -9,7 +10,9 @@ import { ProductsService } from 'src/app/services/products.service';
   styleUrls: ['./cart.component.css'],
 })
 export class CartComponent implements OnInit {
-  productsList: any[] = [];
+  productsList: any[] = []
+
+  public acceptedBookings:Observable<Product[]>;
 
   totalPrice: number = 0.0;
   totalQuantity: number = 0;
@@ -18,12 +21,13 @@ export class CartComponent implements OnInit {
 
   constructor(
     private cartService: CartService,
-    private productService: ProductsService
   ) {}
 
   ngOnInit(): void {
     this.updateCartStatus();
+    this.cartService.addToCard(this.productsList);
   }
+  
 
   updateCartStatus() {
     this.cartService.totalQuantity.subscribe({
@@ -38,10 +42,9 @@ export class CartComponent implements OnInit {
       },
     });
 
-    this.cartService.productBehavior.subscribe((data: any) => {
+    this.cartService.productBehavior$.subscribe((data: any) => {
       this.productReceive = data;
     });
-    this.add(this.productReceive)
   }
 
   remove(id: any) {
@@ -53,7 +56,4 @@ export class CartComponent implements OnInit {
     }
   }
 
-  add(item: Product){
-    this.productsList.push(item)
-  }
 }
