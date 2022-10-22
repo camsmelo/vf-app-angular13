@@ -24,8 +24,13 @@ export class CartComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.updateCartStatus();
-    this.cartService.addToCard(this.productsList);
+   this.cartService.productBehavior$.subscribe({
+    next:(data) => {
+      this.productReceive = data;
+      this.updateCartStatus()
+    }
+   })
+   this.cartService.productBehavior$.next(this.productsList)
   }
   
 
@@ -41,10 +46,7 @@ export class CartComponent implements OnInit {
         this.totalPrice = data;
       },
     });
-
-    this.cartService.productBehavior$.subscribe((data: any) => {
-      this.productReceive = data;
-    });
+ 
   }
 
   remove(id: any) {

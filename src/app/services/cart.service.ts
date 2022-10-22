@@ -28,11 +28,11 @@ export class CartService {
         this.cartItems = data
         this.cartItems.push(cartItemParam);
         this.quantity = this.cartItems.length;
-        this.cartTotal();
         console.log(data)
       }
     })
-      this.productBehavior$.next(cartItemParam)
+    this.cartTotal();
+    this.productBehavior$.next(cartItemParam)
 
   }
 
