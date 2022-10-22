@@ -26,13 +26,11 @@ export class CartService {
     this.productBehavior$.subscribe({
       next:(data) => {
         this.cartItems = data
-        this.cartItems.push(cartItemParam);
+        data.push(cartItemParam);
         this.quantity = this.cartItems.length;
-        console.log(data)
       }
     })
     this.cartTotal();
-    this.productBehavior$.next(cartItemParam)
 
   }
 
