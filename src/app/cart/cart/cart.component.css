@@ -18,3 +18,9 @@
     display: grid;
     grid-template-columns: repeat(5, 1fr);
   }
+
+  .card-total{
+    width: 20%;
+    margin: 40px 20px;
+    border: 2px solid lightgrey;
+  }

@@ -1,24 +1,50 @@
 <table class="cart-table">
   <thead>
     <th class="cart-table-heading">Item</th>
-    <th class="cart-table-heading">Quantity</th>
-    <th class="cart-table-heading">Price</th>
+    <th class="cart-table-heading">Size / Colour</th>
+    <!-- <th class="cart-table-heading">Price</th> -->
     <th class="cart-table-heading"></th>
   </thead>
   <tbody>
-      <tr *ngFor="let item of productsList" class="cart-table-row">
-        <td class="cart-table-cell">
-            {{item.title }}
-        </td>
-        <td class="cart-table-cell">
-          {{totalQuantity}}
-        </td>
-        <td class="cart-table-cell">
-          {{totalPrice | currency: 'GBP'}} </td>
-        <td class="cart-table-cell c">
-          <button (click)="remove(item.products)">Remove Item</button>
-        </td>
-      </tr>   
+    <tr *ngFor="let item of productsList; let i = index" class="cart-table-row">
+      <td class="cart-table-cell">
+        {{item.title }}
+      </td>
+      <td class="cart-table-cell">
+        {{item.variants[0]?.option1}} - {{item.variants[0]?.option2}}
+      </td>
+      <td class="cart-table-cell">
+        <button (click)="remove(i)">Remove Item</button>
+      </td>
+
+    </tr>
+
+
+    <!-- <thead>
+        <th class="cart-table-heading">Quantity</th>
+        <th class="cart-table-heading">Price</th>
+      </thead>
+    
+        <tr>
+          <td class="cart-table-cell">
+            {{totalQuantity}}
+          </td>
+          <td class="cart-table-cell">
+            {{totalPrice | currency: 'GBP'}} </td>
+        </tr> -->
+
   </tbody>
 </table>
 
+<div class="card-total">
+  <div class="card-body">
+    <dl class="dlist-align">
+      <dt>Quantity</dt>
+      <dd class="text-right  h5"><strong>{{totalQuantity}}</strong></dd>
+    </dl>
+    <dl class="dlist-align">
+      <dt>Total price:</dt>
+      <dd class="text-right"> {{totalPrice | currency: 'GBP'}} </dd>
+    </dl>
+  </div>
+</div>

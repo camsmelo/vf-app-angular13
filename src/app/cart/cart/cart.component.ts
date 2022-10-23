@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Product } from 'src/app/model/product.model';
 import { CartService } from 'src/app/services/cart.service';
-import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
   selector: 'app-cart',
@@ -49,13 +48,8 @@ export class CartComponent implements OnInit {
  
   }
 
-  remove(id: any) {
-    let index = this.productsList.findIndex((e:any) => {
-      e.id === id;
-    });
-    if (index !== 1) {
-      this.productsList.splice(index, 1);   
-    }
+  remove(index) {
+    this.cartService.removeItem(index);
   }
 
 }

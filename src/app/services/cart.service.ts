@@ -1,15 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, map, Observable, pluck, Subject } from 'rxjs';
-import {  Product } from '../model/product.model';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
   cartItems: any[] = [];
-
-  mycart = new Subject<any>()
 
   quantity!: number;
 
@@ -18,8 +15,7 @@ export class CartService {
 
   productBehavior$: BehaviorSubject<any> = new BehaviorSubject<any>([]);
 
-  constructor(private http: HttpClient) {
-  }
+  constructor() {}
 
   addToCard(cartItemParam: any) {
 
@@ -47,5 +43,9 @@ export class CartService {
     this.totalQuantity.next(this.quantity);
   
   }
+
+  removeItem(index: number){
+    this.cartItems.splice(index, 1);
+}
 
 }
