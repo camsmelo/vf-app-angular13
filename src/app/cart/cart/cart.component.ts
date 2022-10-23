@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Product } from 'src/app/model/product.model';
 import { CartService } from 'src/app/services/cart.service';
@@ -10,7 +10,6 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class CartComponent implements OnInit {
 
-  @Output() teste = new EventEmitter<number>()
   productsList: any[] = []
 
   public acceptedBookings:Observable<Product[]>;
