@@ -10,8 +10,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { FooterComponent } from './footer/footer.component';
 import { ProductsService } from './services/products.service';
 import { ProductListComponent } from './product-list/product-list/product-list.component';
-import { CartComponent } from './cart/cart/cart.component';
 import { MatSelectModule } from '@angular/material/select';
+import { CartComponent } from './cart/cart/cart.component';
 
 
 @NgModule({

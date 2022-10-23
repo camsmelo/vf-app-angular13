@@ -6,6 +6,6 @@
       <p>{{totalPrice | currency: 'GBP'}}</p>
     </div>
     <a routerLink="cart" class="circle">
-      <p style="color: white; margin-left: 11px; margin-top: 5px;">{{totalQuantity}}</p>
+      <p *ngIf="totalQuantity > 0"  style="color: white; margin-left: 11px; margin-top: 5px;">{{totalQuantity}}</p>
     </a>
 </nav>

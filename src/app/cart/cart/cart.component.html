@@ -1,8 +1,7 @@
 <table class="cart-table">
   <thead>
     <th class="cart-table-heading">Item</th>
-    <th class="cart-table-heading">Size / Colour</th>
-    <!-- <th class="cart-table-heading">Price</th> -->
+    <th class="cart-table-heading">Colour/Size</th>
     <th class="cart-table-heading"></th>
   </thead>
   <tbody>
@@ -14,24 +13,10 @@
         {{item.variants[0]?.option1}} - {{item.variants[0]?.option2}}
       </td>
       <td class="cart-table-cell">
-        <button (click)="remove(i)">Remove Item</button>
+        <button (teste)="remove(i, item.variants[0].price)">Remove Item</button>
       </td>
 
     </tr>
-
-
-    <!-- <thead>
-        <th class="cart-table-heading">Quantity</th>
-        <th class="cart-table-heading">Price</th>
-      </thead>
-    
-        <tr>
-          <td class="cart-table-cell">
-            {{totalQuantity}}
-          </td>
-          <td class="cart-table-cell">
-            {{totalPrice | currency: 'GBP'}} </td>
-        </tr> -->
 
   </tbody>
 </table>

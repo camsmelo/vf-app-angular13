@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Product } from 'src/app/model/product.model';
 import { CartService } from 'src/app/services/cart.service';
@@ -9,6 +9,8 @@ import { CartService } from 'src/app/services/cart.service';
   styleUrls: ['./cart.component.css'],
 })
 export class CartComponent implements OnInit {
+
+  @Output() teste = new EventEmitter<number>()
   productsList: any[] = []
 
   public acceptedBookings:Observable<Product[]>;
@@ -48,8 +50,10 @@ export class CartComponent implements OnInit {
  
   }
 
-  remove(index) {
+  remove(index, price) {
     this.cartService.removeItem(index);
+    this.totalPrice -= price;
+    this.totalQuantity--;
   }
 
 }
